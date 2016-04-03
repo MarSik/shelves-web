@@ -13,9 +13,9 @@ before_script:
   - go get  -u -v github.com/spf13/hugo
 script:
   - hugo
-after-success:
+after_success:
   - openssl aes-256-cbc -K $encrypted_0ef8d2efe080_key -iv $encrypted_0ef8d2efe080_iv -in deploy.key.enc -out deploy.key -d
   - cp CNAME public/
   - "[ -r index.html ] && cp index.html public/"
-  - scripts/deploy.sh
+  - sh scripts/deploy.sh
 
